@@ -1,12 +1,12 @@
-// var dotenv = require("dotenv").config();
+var dotenv = require("dotenv").config();
 
 var axios = require("axios");
 
 // var fs = require("fs");
 
-// var keys = require("./keys.js");
+var keys = require("./keys.js");
 
-// var spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 
 // var moment = require('moment');
 
@@ -21,7 +21,7 @@ switch (action) {
       break;
     
     case "spotify-this-song":
-      spot();
+      spotify();
       break;
     
     case "movie-this":
@@ -47,7 +47,7 @@ function concert() {
     var artist = "";
 
     // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
+    // And do a little for-loop magic to handle the inclusion of "%20"s as per the documentation
     for (var i = 3; i < nodeArgs.length; i++) {
 
     if (i > 3 && i < nodeArgs.length) {
@@ -58,6 +58,7 @@ function concert() {
     }
 
     console.log(artist);
+
   }
 
     // Run the axios.get function...
@@ -88,7 +89,7 @@ function concert() {
 
 // Song Search
 ////////////////////////////////////////////////
-function spot() {
+function spotify() {
 
     // Store all of the arguments in an array
     var nodeArgs = process.argv;
@@ -97,7 +98,7 @@ function spot() {
     var search = "";
 
     // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
+    // And do a little for-loop magic to handle the inclusion of "%20"s as per the documentation
     for (var i = 3; i < nodeArgs.length; i++) {
 
     if (i > 3 && i < nodeArgs.length) {
@@ -106,8 +107,32 @@ function spot() {
     else {
         search += nodeArgs[i];
     }
+
     console.log(search);
+
   }
+
+  // This call isn't correct, but is needs to be something lek this.
+
+    // // Then run a request with axios to the OMDB API with the movie specified
+    // var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+    // // This line is just to help us debug against the actual URL.
+    // console.log(queryUrl);
+
+    // axios.get(queryUrl).then(
+    // function(response)
+
+  // Artist(s)
+  console.log("Artist Name: "+ response.data.artists);
+  // Song name
+  console.log("Song Title: "+ response.data.name);
+  // A preview link of the song from Spotify
+  console.log("Preview Link: "+ response.data.preview
+  -url);
+  // Album name that the song is from
+  console.log("Album: "+ response.data.album);
+
 }
 
 // Movie Search
@@ -115,24 +140,56 @@ function spot() {
 
 function movie() {
 
-    // Store all of the arguments in an array
+    // Grab or assemble the movie name and store it in a variable called "movieName"
     var nodeArgs = process.argv;
 
-    // Create an empty variable for holding the band name
-    var search = "";
+    // Create an empty variable for holding the movie name in case there are multiple words in the movie title.
+    var movieName = "";
 
     // Loop through all the words in the node argument
     // And do a little for-loop magic to handle the inclusion of "+"s
     for (var i = 3; i < nodeArgs.length; i++) {
 
     if (i > 3 && i < nodeArgs.length) {
-        search = search + "+" + nodeArgs[i];
+        movieName = movieName + "+" + nodeArgs[i];
     }
+
     else {
-        search += nodeArgs[i];
+        movieName += nodeArgs[i];
     }
-    console.log(search);
+
+    // console.log(movieName);
+
   }
+
+  // Then run a request with axios to the OMDB API with the movie specified
+  var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+  // This line is just to help us debug against the actual URL.
+  console.log(queryUrl);
+
+  axios.get(queryUrl).then(
+    function(response) {
+      //Title of the movie.
+      console.log("Movie Title: "+ response.data.Title);
+      // Year the movie came out.
+      console.log("Release Year: " + response.data.Year);
+      // IMDB Rating of the movie.
+      console.log("IMDB Rating: " + response.data.imdbRating);
+      // Rotten Tomatoes Rating of the movie.
+      console.log("RT Rating: " + response.data.tomatoRating);
+      // Country where the movie was produced.
+      console.log("Country Produced: " + response.data.Country);
+      // Language of the movie.
+      console.log("Language: " + response.data.Language);
+      // Plot of the movie.
+      console.log("Plot: " + response.data.Plot);
+      // Actors in the movie.
+      console.log("Actors: " + response.data.Actors);
+    }
+  
+  );
+
 }
 
 
@@ -157,6 +214,9 @@ function doit() {
     else {
         search += nodeArgs[i];
     }
+
     console.log(search);
+
   }
+
 }
