@@ -3,7 +3,7 @@ require("dotenv").config();
 var axios = require("axios");
 
 var Spotify = require('node-spotify-api');
- 
+
 var moment = require('moment');
 
 var fs = require("fs");
@@ -35,12 +35,12 @@ switch (action) {
 };
 
 //////////////////////////////////////////////////
-//Second Argument
+// Second Argument
 //////////////////////////////////////////////////
 
 
 ///////////////////////////////
-// Concert Search
+// Concert Search - bandsintown
 ///////////////////////////////
 
 function concertThis() {
@@ -71,6 +71,10 @@ function concertThis() {
   // Then run a request with axios to the bandsintown API with the artist specified
   var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
 
+  // For removing the "%20"s when displaying the user's search
+  var p = artistName.toString();
+  var displayName = p.replace(/%20/gi, " ");
+
   // This line is just to help us debug against the actual URL.
   // console.log(queryUrl);
 
@@ -78,24 +82,51 @@ function concertThis() {
     .get(queryUrl)
     .then(function (response) {
       // Response
-      console.log(response.data); // This is working
-      // Name of Venue
-      // console.log("\t This band will be performing at " + response.data.venue); // Undefined
-      // Venue Location
-      // console.log("\t in " + response.data.venue.city); // Not working at all
-      // Date of the Event
-      // console.log("\t on " + moment(response.data.datetime).format("MM DD YYYY")); // Not Working
-  })
+      // console.log(response.data); // Working
 
-  .catch(function (error) {
-    if (error) {
-      console.log(error);
-    }
-  })
+      console.log("\n\t ---------------------------------------------------------------\n");
+      console.log("\t Upcoming Concerts for " + "'" + displayName + "'");
+      console.log("\n\t ---------------------------------------------------------------\n");
+
+      // Name of Venue
+      console.log("\t " + displayName + "'s next show will be at the " + response.data[0].venue.name); // Working
+      // Venue Location
+      console.log("\t in " + response.data[0].venue.city + ", " + response.data[0].venue.country); // Working 
+      // Date of the Event
+      console.log("\t on " + moment(response.data[0].datetime).format("MM DD YYYY")); // Working
+      // Line Break
+      console.log("\n\t ---------------------------------------------------------------\n");
+
+      // Name of Venue
+      console.log("\t " + displayName + " will also be performing at the " + response.data[1].venue.name); // Working
+      // Venue Location
+      console.log("\t in " + response.data[1].venue.city + ", " + response.data[1].venue.country); // Working 
+      // Date of the Event
+      console.log("\t on " + moment(response.data[1].datetime).format("MM DD YYYY")); // Working
+      // Line Break
+      console.log("\n\t ---------------------------------------------------------------\n");
+
+      // Name of Venue
+      console.log("\t And " + displayName + " will be at the " + response.data[2].venue.name); // Working
+      // Venue Location
+      console.log("\t in " + response.data[2].venue.city + ", " + response.data[2].venue.country); // Working 
+      // Date of the Event
+      console.log("\t on " + moment(response.data[2].datetime).format("MM DD YYYY")); // Working
+      // Line Break
+      console.log("\n\t ---------------------------------------------------------------\n");
+    })
+
+    .catch(function (error) {
+      if (error) {
+        console.log("\n\t ---------------------------------------------------------------\n");
+        console.log("\t There is no additional concert information for this band/artist.");
+        console.log("\n\t ---------------------------------------------------------------\n");
+      }
+    })
 };
 
 ///////////////////////////////
-// Song Search
+// Song Search - Spotify
 ///////////////////////////////
 
 function spotifyThis() {
@@ -111,7 +142,7 @@ function spotifyThis() {
   for (var i = 3; i < nodeArgs.length; i++) {
 
     if (i > 3 && i < nodeArgs.length) {
-      songName = songName + "+" + nodeArgs[i];
+      songName = songName + "%20" + nodeArgs[i];
     }
     else {
       songName += nodeArgs[i];
@@ -119,36 +150,100 @@ function spotifyThis() {
 
     // console.log(songName);
 
+  };
+
+  if (nodeArgs.length == 3) {
+    songName = "The Sign"; 
   }
 
   var keys = require("./keys.js");
-
   var spotify = new Spotify(keys.spotify);
 
   // DOCUMENTATION // https://developer.spotify.com/documentation/web-api/reference/object-model/#track-object-full 
 
+  // For removing the "%20"s when displaying the user's search
+  var t = songName.toString();
+  var displaySong = t.replace(/%20/gi, " ");
+
   // Then run a request with the Spotify API with the song name specified
   spotify
-    .search({ type: 'track', query: songName, limit: 10 })
-    .then(function(response) {
+    .search({ type: 'track', query: songName, limit: 5 })
+    .then(function (response) {
       // Response
       // console.log(response);
+      // console.log(response.tracks);
+      // line break
+      console.log("\n\t ----------------------------------------\n");
+      console.log("\t Song Matches for " + "'" + displaySong + "'");
+      console.log("\n\t ---------------------------------------- \n");
+
       // Artist(s)
-      console.log("\t Artist Name: " + response.artists);
+      console.log("\t Artist Name: " + response.tracks.items[0].artists[0].name);
       // Song name
-      console.log("\t Song Title: " + response.name);
+      console.log("\t Song Title: " + response.tracks.items[0].name);
       // A preview link of the song from Spotify
-      console.log("\t Preview Link: " + response.preview_url);
+      console.log("\t Preview Link: " + response.tracks.items[0].preview_url);
       // Album name that the song is from
-      console.log("\t Album: " + response.album);
+      console.log("\t From the Album: " + response.tracks.items[0].album.name);
+      // line break
+      console.log("\n\t ---------------------------------------- \n ");
+
+      // Artist(s)
+      console.log("\t Artist Name: " + response.tracks.items[1].artists[0].name);
+      // Song name
+      console.log("\t Song Title: " + response.tracks.items[1].name);
+      // A preview link of the song from Spotify
+      console.log("\t Preview Link: " + response.tracks.items[1].preview_url);
+      // Album name that the song is from
+      console.log("\t From the Album: " + response.tracks.items[1].album.name);
+      // line break
+      console.log("\n\t ---------------------------------------- \n ");
+
+      // Artist(s)
+      console.log("\t Artist Name: " + response.tracks.items[2].artists[0].name);
+      // Song name
+      console.log("\t Song Title: " + response.tracks.items[2].name);
+      // A preview link of the song from Spotify
+      console.log("\t Preview Link: " + response.tracks.items[2].preview_url);
+      // Album name that the song is from
+      console.log("\t From the Album: " + response.tracks.items[2].album.name);
+      // line break
+      console.log("\n\t ---------------------------------------- \n ");
+
+      // Artist(s)
+      console.log("\t Artist Name: " + response.tracks.items[3].artists[0].name);
+      // Song name
+      console.log("\t Song Title: " + response.tracks.items[3].name);
+      // A preview link of the song from Spotify
+      console.log("\t Preview Link: " + response.tracks.items[3].preview_url);
+      // Album name that the song is from
+      console.log("\t From the Album: " + response.tracks.items[3].album.name);
+      // line break
+      console.log("\n\t ---------------------------------------- \n ");
+
+      // Artist(s)
+      console.log("\t Artist Name: " + response.tracks.items[4].artists[0].name);
+      // Song name
+      console.log("\t Song Title: " + response.tracks.items[4].name);
+      // A preview link of the song from Spotify
+      console.log("\t Preview Link: " + response.tracks.items[4].preview_url);
+      // Album name that the song is from
+      console.log("\t From the Album: " + response.tracks.items[4].album.name);
+      // line break
+      console.log("\n\t ---------------------------------------- \n ");
     })
-    .catch(function(err) {
-      console.log(err);
-    });
+
+    .catch(function (error) {
+      if (error) {
+        console.log("\n\t ---------------------------------------------------------------\n");
+        console.log("\t There is no additional information for this song.");
+        console.log("\n\t ---------------------------------------------------------------\n");
+      }
+    })
 };
 
 ///////////////////////////////
-// Movie Search
+// Movie Search - omdb
 ///////////////////////////////
 
 function movieThis() {
@@ -160,34 +255,46 @@ function movieThis() {
   var movieName = "";
 
   // Loop through all the words in the node argument
-  // And do a little for-loop magic to handle the inclusion of "+"s
+  // And do a little for-loop magic to handle the inclusion of "%20"s
   for (var i = 3; i < nodeArgs.length; i++) {
 
     if (i > 3 && i < nodeArgs.length) {
-      movieName = movieName + "+" + nodeArgs[i];
+      movieName = movieName + "%20" + nodeArgs[i];
     }
 
     else {
-      movieName += nodeArgs[i];
+      movieName +=nodeArgs[i];
     }
 
     // console.log(movieName);
 
   };
 
+  if (nodeArgs.length == 3) {
+    movieName = "Mr. Nobody"; 
+  }
+
   // DOCUMENTATION // https://media.readthedocs.org/pdf/omdbpy/latest/omdbpy.pdf 
 
   // Then run a request with axios to the OMDB API with the movie specified
   var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&tomatoes=true&apikey=trilogy";
 
-  // This line is just to help us debug against the actual URL.
+  // This line is just to help debug against the actual URL.
   // console.log(queryUrl);
+
+  // For removing the "%20"s when displaying the user's search
+  var r = movieName.toString();
+  var displayMovie = r.replace(/%20/gi, " ");
 
   axios
     .get(queryUrl)
     .then(function (response) {
       //Response
       // console.log(response.data);
+      console.log("\n\t ----------------------------------------\n");
+      console.log("\t Movie Matches for " + "'" + displayMovie + "'");
+      console.log("\n\t ---------------------------------------- \n");
+
       //Title of the movie.
       console.log("\t Movie Title: " + response.data.Title);
       // Year the movie came out.
@@ -204,37 +311,55 @@ function movieThis() {
       console.log("\t Plot: " + response.data.Plot);
       // Actors in the movie.
       console.log("\t Actors: " + response.data.Actors);
+      console.log("\n\t ---------------------------------------- \n");
     })
+
     .catch(function (error) {
       if (error) {
-        console.log(error);
+        console.log("\n\t ---------------------------------------------------------------\n");
+        console.log("\t There is no additional information for this movie.");
+        console.log("\n\t ---------------------------------------------------------------\n");
       }
     })
 };
 
 ///////////////////////////////
-// Do What It Says
+// Do What It Says - txt doc
 ///////////////////////////////
 
 function doitNow() {
 
-  fs.readFile("random.txt", "utf8", function(error, data) {
-
+  fs.readFile("random.txt", "utf8", function (error, data) {
     // If the code experiences any errors it will log the error to the console.
     if (error) {
-      return console.log(error);
-    }
-  
-    // We will then print the contents of data
-    console.log(data);
-  
-    // Then split it by commas
-    // var dataArr = data.split(",");
-  
+      console.log(error);
+    };
+
+    // Print the contents of data
+    // console.log(data);
+
+    // Then split the contents of data by commas
+    var dataArr = data.split(",");
+
     // Then re-display the content as an array.
-    // console.log(dataArr);
-  
+    // console.log(dataArr);    
+
+    // Separate the data into indices so they can be used as arguments.
+    // console.log(dataArr[0]); 
+    // console.log(dataArr[1]);
+
+    // We need the value of the existing songName varibale to be replaced with dataArr[1].
+    // So we equate the existing argument being used to identify the song to search with our new argument. 
+    process.argv[3] = dataArr[1]
+
+    // And then pass this new argument throught the spotifyThis function
+    spotifyThis(dataArr[1]);
+
   });
+
+  // And this is just for the fun of it.
+  var moo = require("./moo");
+  console.log(moo);
 
 };
 
