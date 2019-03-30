@@ -30,9 +30,9 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
    * This will search the "Bands in Town Artist Events" API for an artist and render the following information about each event to the terminal:
 
-     * Name of the venue
+     * Name of the venue.
 
-     * Venue location
+     * Venue location.
 
      * Date of the Event (using Moment.js to format the date).
 
@@ -40,13 +40,13 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
    * This will search the "Spotify" API and show the following information about the song in your terminal/bash window:
 
-     * Artist(s)
+     * Artist(s).
 
-     * The song's name
+     * The song's name.
 
-     * A preview link of the song from Spotify
+     * A preview link of the song from Spotify.
 
-     * The album that the song is from
+     * The album that the song is from.
 
 3. `node liri.js movie-this '<movie name here>'`
 

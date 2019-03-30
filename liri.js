@@ -71,9 +71,9 @@ function concertThis() {
   // Then run a request with axios to the bandsintown API with the artist specified
   var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
 
-  // For removing the "%20"s when displaying the user's search
+  // For removing the "%20"s when displaying the user's search and making the title all caps for aesthtics.
   var p = artistName.toString();
-  var displayName = p.replace(/%20/gi, " ");
+  var displayName = p.replace(/%20/gi, " ").toUpperCase();
 
   // This line is just to help us debug against the actual URL.
   // console.log(queryUrl);
@@ -123,6 +123,11 @@ function concertThis() {
         console.log("\n\t ---------------------------------------------------------------\n");
       }
     })
+
+  // And this is just for the fun of it.
+  var concert = require("./concert");
+  console.log(concert);
+  
 };
 
 ///////////////////////////////
@@ -161,9 +166,9 @@ function spotifyThis() {
 
   // DOCUMENTATION // https://developer.spotify.com/documentation/web-api/reference/object-model/#track-object-full 
 
-  // For removing the "%20"s when displaying the user's search
+  // For removing the "%20"s when displaying the user's search and making the title all caps for aesthtics.
   var t = songName.toString();
-  var displaySong = t.replace(/%20/gi, " ");
+  var displaySong = t.replace(/%20/gi, " ").toUpperCase();
 
   // Then run a request with the Spotify API with the song name specified
   spotify
@@ -240,6 +245,11 @@ function spotifyThis() {
         console.log("\n\t ---------------------------------------------------------------\n");
       }
     })
+
+  // And this is just for the fun of it.
+  var music = require("./music");
+  console.log(music);
+
 };
 
 ///////////////////////////////
@@ -282,9 +292,9 @@ function movieThis() {
   // This line is just to help debug against the actual URL.
   // console.log(queryUrl);
 
-  // For removing the "%20"s when displaying the user's search
+  // For removing the "%20"s when displaying the user's search and making the title all caps for aesthtics.
   var r = movieName.toString();
-  var displayMovie = r.replace(/%20/gi, " ");
+  var displayMovie = r.replace(/%20/gi, " ").toUpperCase();
 
   axios
     .get(queryUrl)
@@ -321,6 +331,11 @@ function movieThis() {
         console.log("\n\t ---------------------------------------------------------------\n");
       }
     })
+
+  // And this is just for the fun of it.
+  var movie = require("./movie");
+  console.log(movie);
+
 };
 
 ///////////////////////////////
@@ -358,8 +373,8 @@ function doitNow() {
   });
 
   // And this is just for the fun of it.
-  var moo = require("./moo");
-  console.log(moo);
+  // var moo = require("./moo");
+  // console.log(moo);
 
 };
 
