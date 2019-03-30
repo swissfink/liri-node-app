@@ -74,40 +74,39 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
 ### Examples of liri app executing commands
 
-
 1. `node liri.js concert-this beck`
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/concert-command.png "concert-this command") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/concert-results.png "concert-this results") 
 
 
 2. `node liri.js spotify-this-song blue`
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command.png "spoify-this-song command") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results.png "spoify-this-song results") 
 
 3. `node liri.js spotify-this-song` (no entry)
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command-no-entry.png "spoify-this-song command") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results-no-entry.png "spoify-this-song results - no entry") 
 
 4. `node liri.js movie-this cars 2` 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-command.png "movie-this command") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-results.png "movie-this results") 
 
 5. `node liri.js movie-this` (no entry) 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-command-no-entry.png "movie-this command - no entry") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-results-no-entry.png "movie-this results - no entry") 
 
 6. `node liri.js do-what-it-says` 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this command") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-command.png "concert-this command") 
 
-     * ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "concert-this results") 
+     * ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-results.png "concert-this results") 
