@@ -31,7 +31,6 @@ switch (action) {
   case "do-what-it-says":
     doitNow();
     break;
-
 };
 
 //////////////////////////////////////////////////
@@ -372,9 +371,4 @@ function doitNow() {
 
   });
 
-  // And this is just for the fun of it.
-  // var moo = require("./moo");
-  // console.log(moo);
-
 };
-
