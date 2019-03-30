@@ -72,7 +72,7 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
    * Using the `fs` Node package, LIRI will take the text inside of a random.txt file and then use it to call one of LIRI's commands.
 
-### Examples of liri app executing commands
+### Examples of the LIRI app executing commands
 
 1. `node liri.js concert-this beck`
 
