@@ -107,7 +107,7 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results-no-entry.png "spotify-this-song results - no entry") 
 
      * **Real Time**
-     ![alt text](hhttps://github.com/swissfink/liri-node-app/blob/master/images/spotify-no-entry.gif "spotify-this-song results - no entry gif") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-no-entry.gif "spotify-this-song results - no entry gif") 
 
 4. `node liri.js movie-this cars 2` 
 
