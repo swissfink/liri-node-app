@@ -85,6 +85,7 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/concert.gif "concert-this results gif") 
 
+---
 
 2. `node liri.js spotify-this-song blue`
 
@@ -97,6 +98,7 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify.gif "spoify-this-song results gif") 
 
+---
 
 3. `node liri.js spotify-this-song` (no entry)
 
@@ -109,6 +111,8 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-no-entry.gif "spotify-this-song results - no entry gif") 
 
+---
+
 4. `node liri.js movie-this cars 2` 
 
      * **Command**
@@ -119,6 +123,8 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie.gif "movie-this results gif") 
+
+---
 
 5. `node liri.js movie-this` (no entry) 
 
@@ -131,6 +137,8 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-no-entry.gif "movie-this results - no entry gif") 
 
+---
+
 6. `node liri.js do-what-it-says` 
 
      * **Command**
@@ -141,3 +149,7 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-it.gif "do-what-it-says results gif") 
+
+---
+
+Crafted with :heart: by ![Richard Fink](https://swissfink.github.io/).
