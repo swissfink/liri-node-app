@@ -82,14 +82,17 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Results**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/concert-results.png "concert-this results") 
 
+     * **Real Time**
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/concert.gif "concert-this results gif") 
+
 
 2. `node liri.js spotify-this-song blue`
 
      * **Command**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command.png "spoify-this-song command") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command.png "spotify-this-song command") 
 
      * **Results**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results.png "spoify-this-song results") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results.png "spotify-this-song results") 
 
      * **Real Time**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify.gif "spoify-this-song results gif") 
@@ -98,10 +101,13 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 3. `node liri.js spotify-this-song` (no entry)
 
      * **Command**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command-no-entry.png "spoify-this-song command") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-command-no-entry.png "spotify-this-song command - no entry") 
 
      * **Results**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results-no-entry.png "spoify-this-song results - no entry") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/spotify-results-no-entry.png "spotify-this-song results - no entry") 
+
+     * **Real Time**
+     ![alt text](hhttps://github.com/swissfink/liri-node-app/blob/master/images/spotify-no-entry.gif "spotify-this-song results - no entry gif") 
 
 4. `node liri.js movie-this cars 2` 
 
@@ -111,6 +117,9 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Results**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-results.png "movie-this results") 
 
+     * **Real Time**
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie.gif "movie-this results gif") 
+
 5. `node liri.js movie-this` (no entry) 
 
      * **Command**
@@ -119,10 +128,16 @@ LIRI is be a command line node app that takes in parameters and gives back data.
      * **Results**
      ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-results-no-entry.png "movie-this results - no entry") 
 
+     * **Real Time**
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/movie-no-entry.gif "movie-this results - no entry gif") 
+
 6. `node liri.js do-what-it-says` 
 
      * **Command**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-command.png "concert-this command") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-command.png "do-what-it-says command") 
 
      * **Results**
-     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-results.png "concert-this results") 
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-results.png "do-what-it-says results") 
+
+     * **Real Time**
+     ![alt text](https://github.com/swissfink/liri-node-app/blob/master/images/do-it.gif "do-what-it-says results gif") 
