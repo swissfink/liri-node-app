@@ -152,4 +152,4 @@ LIRI is be a command line node app that takes in parameters and gives back data.
 
 ---
 
-Crafted with :heart: by ![Richard Fink](https://swissfink.github.io/).
+<div style="text-align: center">Crafted with :heart: by [Richard Fink](https://swissfink.github.io/).</div>
